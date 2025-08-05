@@ -59,7 +59,7 @@ source env/bin/activate
 
 Clone repo and navigate to it
 ```
-git clone https://gitlab.jhuapl.edu/harddisc/pomelo.git
+git clone https://github.com/JHUAPL/pomelo.git
 cd pomelo
 ```
 Download the zip of the Multimodal-Toolkit found here: https://github.com/georgian-io/Multimodal-Toolkit _(we do not pip install this package from pypi because the versions there do not have certain classes inside model.tabular_transformers.py, such as XLMWithTabular)_.
