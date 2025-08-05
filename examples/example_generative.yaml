@@ -1,0 +1,30 @@
+stages: ["generative"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: []
+  numerical_columns: []
+  jargon:
+    path: "test/test_jargon.csv"
+    jargon_column: "jargon"
+    expanded_column: "expansion"
+
+generative:
+  prompt: "{GPT_SUMMARY} {RACE} Question: Is this person dead? Answer:"
+  models: ["hfoffline"]
+  output_dir: "test"
+  label_set:
+    "yes" : true
+    "no" : false
+  hfoffline: 
+    model_names: ["distilgpt2", "EleutherAI/gpt-neo-125m"]
+    distilgpt2:
+      batch_size: 1
+      max_new_tokens: 5
+    EleutherAI/gpt-neo-125m:
+      batch_size: 1
+      max_new_tokens: 5

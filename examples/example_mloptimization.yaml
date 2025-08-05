@@ -1,0 +1,15 @@
+stages: ["mloptimization"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: []
+  numerical_columns: []
+
+mloptimization:
+  models: ["xgb", "logreg"]
+  datasets: ["./data/processed/tfidf.joblib", "./data/processed/bert.joblib"]
+  trials: 1

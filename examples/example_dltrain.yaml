@@ -1,0 +1,20 @@
+stages: ["dltrain"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: ["ADMISSION_DATE"]
+  numerical_columns: ["BLOOD_PRESSURE"]
+  jargon:
+    path: "test/test_jargon.csv"
+    jargon_column: "jargon"
+    expanded_column: "expansion"
+
+dltrain: 
+    models: ["bert"]
+    multimodal: [["attention", "gating"]]
+    ensembles: [["singular", "voting"]]
+    output_dir: "test"

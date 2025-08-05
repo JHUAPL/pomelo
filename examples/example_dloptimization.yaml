@@ -1,0 +1,15 @@
+stages: ["dloptimization"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: ["ADMISSION_DATE"]
+  numerical_columns: ["BLOOD_PRESSURE"]
+  
+
+dloptimization:
+  models: ["bert", "roberta"]
+  trials: 1

@@ -1,0 +1,35 @@
+stages: ["encoding", "mltrain"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: []
+  numerical_columns: []
+
+encoding:
+  embedding_types: ["tfidf", "bert"]
+  dimension_reductions: ["pca", "umap"]
+  output_dir: "test"
+  bert: 
+    model_type: "bert-base-uncased"
+  pca: 
+    components: 40
+    minmax: False
+  umap: 
+    components: 40
+    n_neighbors: 3
+    min_dist: 0.3
+
+mltrain:
+  models: ["xgb", "nb"]
+  datasets: ["./data/processed/tfidf.joblib", "./data/processed/bert.joblib"]
+  output_dir: "test"
+  xgb: 
+    booster: "dart"
+    eta: 0.3 
+  nb: 
+    priors: [0.4, 0.6]
+    var_smoothing: 0.00001

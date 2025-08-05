@@ -1,0 +1,24 @@
+stages: ["topicmodel"]
+random_seed: 666
+
+dataset:
+  dataset_path: "test/test_data.csv"
+  free_text_column: "GPT_SUMMARY"
+  prediction_column: "DEAD"
+  categorical_columns: ["RACE", "ETHNICITY", "GENDER", "MARITAL_STATUS"]
+  date_columns: []
+  numerical_columns: []
+  jargon:
+    path: "test/test_jargon.csv"
+    jargon_column: "jargon"
+    expanded_column: "expansion"
+
+topicmodel:
+  models: ["bertopic", "lda"]
+  output_dir: "test"
+  bertopic:
+    top_n_words: 5
+    nr_topics: "auto"
+    min_topic_size: 10
+    n_gram_range: [1, 2]
+    model: "models/sent"
