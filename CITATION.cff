@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Sasse"
+  given-names: "Kuleen"
+- family-names: "Calabresi"
+  given-names: "Miles"
+  orcid: "https://orcid.org/0000-0002-6839-1816"
+- family-names: "Barham"
+  given-names: "Sam"
+- family-names: "Mayolo"
+  given-names: "Silvio"
+title: "POMELO"
+version: 1.0.0
+date-released: 2025-08-04
+url: "https://github.com/JHUAPL/pomelo"
